@@ -12,14 +12,39 @@ if(isset($_POST['submit'])){
     if(empty($_POST['orderid'])){
 
         // Adds name to array
-        $data_missing[] = 'OrderLineItem';
+        $data_missing[] = 'OrderID';
 
     } else {
 
         // Trim white space from the name and store the name
-        $f_name = trim($_POST['orderLineItem']);
+        $orderid = trim($_POST['orderid']);
 
     }
+
+    if(empty($_POST['orderTime'])){
+
+        // Adds name to array
+        $data_missing[] = 'OrderTime';
+
+    } else {
+
+        // Trim white space from the name and store the name
+        $time = trim($_POST['orderTime']);
+
+    }
+
+    if(empty($_POST['orderStatus'])){
+
+        // Adds name to array
+        $data_missing[] = 'OrderStatus';
+
+    } else {
+
+        // Trim white space from the name and store the name
+        $status = trim($_POST['orderStatus']);
+
+    }
+
 
     if(empty($_POST['orderLineItem'])){
 
@@ -29,7 +54,31 @@ if(isset($_POST['submit'])){
     } else {
 
         // Trim white space from the name and store the name
-        $f_name = trim($_POST['orderLineItem']);
+        $item = trim($_POST['orderLineItem']);
+
+    }
+
+    if(empty($_POST['orderLineQuantity'])){
+
+        // Adds name to array
+        $data_missing[] = 'OrderQuantity';
+
+    } else {
+
+        // Trim white space from the name and store the name
+        $quantity = trim($_POST['orderLineQuantity']);
+
+    }
+
+    if(empty($_POST['orderTotal'])){
+
+        // Adds name to array
+        $data_missing[] = 'OrderTotal';
+
+    } else {
+
+        // Trim white space from the name and store the name
+        $total = trim($_POST['orderTotal']);
 
     }
 
