@@ -3,7 +3,7 @@
 require_once('../mysqli_connect.php');
 
 // Create a query for the database
-$query = "SELECT m.menuLineItem, m.price FROM Menu m WHERE m.restaurantID = 2";
+$query = "SELECT r.restaurantName FROM Restaurant r WHERE r.service LIKE '%Delivery%'";
 
 // Get a response from the database by sending the connection
 // and the query
@@ -15,17 +15,20 @@ if($response){
     echo '<table align="left"
 cellspacing="5" cellpadding="8">
 
-<tr><td align="left"><b>Panda Expresss Menu</b></td>
+<tr><td align="left"><b>Here is where you can order delivery: </b></td>
 </tr>';
+    echo' 
+<form action="http://localhost:1234/deliverymenus.php" method = "post">
 
-$space = "    ";
+    <p> <input type = "submit" name= "submit" value="See Menus" size = "40" /> </p>
+</form>';
+
 // mysqli_fetch_array will return a row of data from the query
 // until no further data is available
     while($row = mysqli_fetch_array($response)){
 
         echo '<tr><td align="left">' .
-            $row['menuLineItem']. $space .
-            $row['price'] .  '</td><td align="left">' ;
+            $row['restaurantName'] . '</td><td align="left">';
 
         echo '</tr>';
     }
@@ -44,28 +47,3 @@ $space = "    ";
 mysqli_close($dbc1);
 
 ?>
-
-<html lang="en">
-<head>
-    <title>Add Order</title>
-</head>
-<body>
-<form action="http://localhost:1234/orderadded.php" method="post">
-
-
-    <p>Add Item to Order
-        <label>
-            <input type="text" name="orderLineItem" size="30" value="" />
-        </label>
-    </p>
-
-
-
-    <p>
-        <input type="submit" name="Add" value="Add" />
-    </p>
-
-</form>
-</body>
-</html>
-
