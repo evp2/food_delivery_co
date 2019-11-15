@@ -9,29 +9,7 @@ if(isset($_POST['submit'])){
 
     $data_missing = array();
 
-    if(empty($_POST['orderid'])){
 
-        // Adds name to array
-        $data_missing[] = 'OrderID';
-
-    } else {
-
-        // Trim white space from the name and store the name
-        $orderid = trim($_POST['orderid']);
-
-    }
-
-    if(empty($_POST['orderTime'])){
-
-        // Adds name to array
-        $data_missing[] = 'OrderTime';
-
-    } else {
-
-        // Trim white space from the name and store the name
-        $time = trim($_POST['orderTime']);
-
-    }
 
     if(empty($_POST['orderStatus'])){
 
@@ -88,7 +66,7 @@ if(isset($_POST['submit'])){
         require_once('../mysqli_connect.php');
 
         $query = "INSERT INTO orders (orderid, orderDate, orderTime,
-        orderStatus, orderLineItem, orderLineQuantity, orderTotal) VALUES (?, NOW(), ?,
+        orderStatus, orderLineItem, orderLineQuantity, orderTotal) VALUES (NULL, NOW(), time(),
         ?, ?, ?, ?)";
 
         $stmt = mysqli_prepare($dbc1, $query);
