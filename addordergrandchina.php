@@ -6,9 +6,9 @@
 <?php
 if(isset($_POST['orderLineItem'])){
     $link = mysqli_connect("localhost", "root", "", "DoorDash");
-    echo ( "isset([orderLineItem]): ");
-    echo ( isset($_POST['orderLineItem']) . '<br />');
-    echo ( $_POST['orderLineItem']  . '<br />');
+    // echo ( "isset([orderLineItem]): ");
+    // echo ( isset($_POST['orderLineItem']) . '<br />');
+    // echo ( $_POST['orderLineItem']  . '<br />');
     
     $lineItem = mysqli_real_escape_string($link,$_POST['orderLineItem']);
     
@@ -24,18 +24,15 @@ if(isset($_POST['orderLineItem'])){
 
     $count = mysqli_affected_rows($link);//Rather than passing $result you actually want to pass the DB link 
     
-    echo ($query . '<br />');
-    echo ($count . '<br />');
+    // echo ($query . '<br />');
+    // echo ($count . '<br />');
 
-    
     mysqli_close($link);
 
 }
 if(isset($_POST['submit'])){
     
     $data_missing = array();
-
-
 
     if(empty($_POST['orderStatus'])){
 
@@ -48,7 +45,6 @@ if(isset($_POST['submit'])){
         $status = trim($_POST['orderStatus']);
 
     }
-
 
     if(empty($_POST['orderLineItem'])){
 
@@ -85,8 +81,6 @@ if(isset($_POST['submit'])){
         $total = trim($_POST['orderTotal']);
 
     }
-
-    
     
     if(empty($data_missing)){
 
@@ -94,7 +88,7 @@ if(isset($_POST['submit'])){
 
         $query = "INSERT INTO orders ( orderDate, orderTime, orderStatus, orderLineItem, orderLineQuantity, orderTotal) VALUES ( CURRENT_DATE(), CURRENT_TIME(), ?, ?, ?, ?)";
         
-        echo ($query);
+        //echo ($query);
 
         $stmt = mysqli_prepare($dbc, $query);
 
