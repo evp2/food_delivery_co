@@ -14,7 +14,7 @@ require_once('../mysqli_connect.php');
 
 $name = $_SESSION["fname"];
 $query2 = "SELECT c.customerid FROM customers c WHERE c.firstName = '$name' ";
-$response2 = @mysqli_query($dbc1, $query2);
+$response2 = @mysqli_query($dbc, $query2);
 $id = null;
 while($row = mysqli_fetch_array($response2)){
 
@@ -29,7 +29,7 @@ $query = "SELECT o.orderLineItem FROM orders o WHERE o.customer = $id";
 
 // Get a response from the database by sending the connection
 // and the query
-$response = @mysqli_query($dbc1, $query);
+$response = @mysqli_query($dbc, $query);
 
 
 
@@ -65,12 +65,12 @@ cellspacing="5" cellpadding="8">
 
     echo "Couldn't issue database query<br />";
 
-    echo mysqli_error($dbc1);
+    echo mysqli_error($dbc);
 
 }
 
 // Close connection to the database
-mysqli_close($dbc1);
+mysqli_close($dbc);
 
 ?>
 
