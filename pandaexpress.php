@@ -33,7 +33,7 @@ $space = "    ";
 
         echo '<tr><td align="left">' .
             $row['menuLineItem']. $space .
-            $row['price'] .  '</td><td align="left">' ;
+           '$', $row['price'] .  '</td><td align="left">' ;
 
         echo '</tr>';
 
