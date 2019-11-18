@@ -7,6 +7,7 @@
 
 
 <?php
+session_start();
 // Get a connection for the database
 require_once('../mysqli_connect.php');
 
@@ -33,7 +34,7 @@ $space = "    ";
 
         echo '<tr><td align="left">' .
             $row['menuLineItem']. $space .
-           '$', $row['price'] .  '</td><td align="left">' ;
+            $row['price'] .  '</td><td align="left">' ;
 
         echo '</tr>';
 
