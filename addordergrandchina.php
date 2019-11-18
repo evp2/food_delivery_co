@@ -4,7 +4,7 @@
 </head>
 <body>
 <?php
-if(isset($_POST['orderLineItem'])){
+if(isset($_POST['orderLineItem'])){//not being used for project
     $link = mysqli_connect("localhost", "root", "", "DoorDash");
     // echo ( "isset([orderLineItem]): ");
     // echo ( isset($_POST['orderLineItem']) . '<br />');
