@@ -96,26 +96,7 @@ if(isset($_POST['submit'])){
 
         }
 
-
-
-    } else {
-
-        echo 'You need to enter the following data<br />';
-
-        foreach($data_missing as $missing){
-
-            echo "$missing<br />";
-
-        }
-
-    }
-
-}
-
-?>
-
-
-<form action="http://localhost:1234/pickuporder.php" method="post">
+       echo' <form action="http://localhost:1234/pickuporder.php" method="post">
 
 
     <b>You are now ready to begin placing an order. </b>
@@ -129,10 +110,53 @@ if(isset($_POST['submit'])){
 <form action="http://localhost:1234/delivery.php" method = "post">
 
     <p> <input type = "submit" name= "service" value="DELIVERY" size = "40" /> </p>
-</form>
+</form> ';
 
 
 
+    } else {
+
+        echo 'You need to enter the following data<br />';
+
+        foreach($data_missing as $missing){
+
+            echo "$missing<br />";
+
+
+
+
+        }
+
+       echo' <head>
+    <title>Sign in</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Order Now</h2>
+    <p> Please enter the following before placing your order</p>
+    <form action="http://localhost:1234/customer.php" method = "post">
+
+        <p> First Name: <input type = "text" name = "firstName" class = "form-control" value = ""/> </p>
+
+        <p> Last Name:  <input type = "text" name = "lastName" class = "form-control" value = ""/> </p>
+
+        <p> Phone Number: <input type = "text" name = "phoneNumber" class = "form-control" value = "" /> </p>
+
+        <button type="submit" name = "submit" class="btn btn-default">Enter</button>
+    </form>
+</div> ';
+
+    }
+
+}
+
+?>
 
 
 </body>
