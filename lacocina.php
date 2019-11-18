@@ -11,7 +11,7 @@
 require_once('../mysqli_connect.php');
 
 // Create a query for the database
-$query = "SELECT m.menuLineItem, m.price FROM Menu m WHERE m.restaurantID = 3";
+$query = "SELECT m.menuLineItem, m.price FROM Menu m WHERE m.restaurantID = 9";
 
 // Get a response from the database by sending the connection
 // and the query
@@ -23,7 +23,7 @@ if($response){
     echo '<table align="left"
 cellspacing="5" cellpadding="8">
 
-<tr><td align="left"><b>Pronto Pizza Menu</b></td>
+<tr><td align="left"><b>La Cocina Menu</b></td>
 </tr>';
 
     $space = "    ";
@@ -33,7 +33,8 @@ cellspacing="5" cellpadding="8">
 
         echo '<tr><td align="left">' .
             $row['menuLineItem']. $space .
-          '$', $row['price'] .  '</td><td align="left">' ;
+            '$', $row['price'] . '</td><td align="left">' ;
+
 
         echo '</tr>';
 
@@ -57,19 +58,19 @@ mysqli_close($dbc1);
 ?>
 
 
-<form action="http://localhost:1234/orderaddedpronto.php" method="post">
+<form action="http://localhost:1234/orderaddedlacocina.php" method="post">
 
 
     <p> Add items to your order </p>
-    <p> <input type = "submit" name = "orderLineItem" value = "Plain Cheese" align = "left"/> </p>
+    <p> <input type = "submit" name = "orderLineItem" value = "Maduros Rellenos" align = "left"/> </p>
 
-    <p> <input type = "submit" name = "orderLineItem" value = "Buffalo Wings" align = "left"/> </p>
+    <p> <input type = "submit" name = "orderLineItem" value = "Chicharron de Pollo sin Huesco" align = "left"/> </p>
 
-    <p> <input type = "submit" name = "orderLineItem" value = "French Fries" align = "left"/> </p>
+    <p> <input type = "submit" name = "orderLineItem" value = "Arroz con Pernil" align = "left"/> </p>
 
-    <p> <input type = "submit" name = "orderLineItem" value = "Mozzarella Sticks" align = "left"/> </p>
+    <p> <input type = "submit" name = "orderLineItem" value = "Tostones" align = "left"/> </p>
 
-    <p> <input type = "submit" name = "orderLineItem" value = "Pepperoni Pizza" align = "left"/> </p>
+    <p> <input type = "submit" name = "orderLineItem" value = "Mofongo con carne frita" align = "left"/> </p>
 
 
 </form>
