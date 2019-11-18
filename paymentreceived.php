@@ -83,7 +83,7 @@ if(isset($_POST['submit'])){
 
         $name = $_SESSION["fname"];
         $query2 = "SELECT c.customerid FROM customers c WHERE c.firstName = '$name' ";
-        $response2 = @mysqli_query($dbc1, $query2);
+        $response2 = @mysqli_query($dbc, $query2);
         $id = null;
         while($row = mysqli_fetch_array($response2)){
 
@@ -99,7 +99,7 @@ if(isset($_POST['submit'])){
         firstName, lastName, customerid) VALUES (?, ?, ?, ?, ?, $id)";
 
 
-        $stmt = mysqli_prepare($dbc1, $query);
+        $stmt = mysqli_prepare($dbc, $query);
 
 
 
@@ -115,16 +115,16 @@ if(isset($_POST['submit'])){
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc1);
+            mysqli_close($dbc);
 
         } else {
 
             echo 'Error Occurred<br />';
-            echo mysqli_error($dbc1);
+            echo mysqli_error($dbc);
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc1);
+            mysqli_close($dbc);
 
         }
 
