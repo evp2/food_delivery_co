@@ -8,7 +8,7 @@
     <b>Select a Menu </b>
 
     <p>
-        <input type="submit" name="submit" value="Grand China" size = "60" />
+        <input type="submit"  name="submit" value="Grand China" size = "60" />
     </p>
 
 </form>
