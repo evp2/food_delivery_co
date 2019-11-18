@@ -14,7 +14,7 @@ require_once('../mysqli_connect.php');
 
 $name = $_SESSION["fname"];
 $query2 = "SELECT c.customerid FROM customers c WHERE c.firstName = '$name' ";
-$response2 = @mysqli_query($dbc1, $query2);
+$response2 = @mysqli_query($dbc, $query2);
 $id = null;
 while($row = mysqli_fetch_array($response2)){
 
@@ -30,10 +30,10 @@ $query3 = "DELETE FROM customers WHERE customerid = $id";
 
 // Get a response from the database by sending the connection
 // and the query
-if (mysqli_query($dbc1, $query)) {
+if (mysqli_query($dbc, $query)) {
     echo "Order deleted successfully";
 } else {
-    echo "Error deleting record: " . mysqli_error($dbc1);
+    echo "Error deleting record: " . mysqli_error($dbc);
 }
 
 //if (mysqli_query($dbc1, $query3)) {
@@ -42,7 +42,7 @@ if (mysqli_query($dbc1, $query)) {
   //  echo "Error deleting record: " . mysqli_error($dbc1);
 //}
 
-mysqli_close($dbc1);
+mysqli_close($dbc);
 
 
 
