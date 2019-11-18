@@ -49,7 +49,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
 
-                <li class="active"><a href="http://localhost:1234/pickservice2.php">Order Now </a></li>
+                <li class="active"><a href="http://localhost:1234/pickservice.php">Order Now </a></li>
 
             </ul>
 
