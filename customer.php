@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
         lastName, email, phoneNumber) VALUES (NULL, NULL, ?, ?, NULL, ?)";
 
 
-        $stmt = mysqli_prepare($dbc, $query);//just needs to adjust to $dbc
+        $stmt = mysqli_prepare($dbc1, $query);//just needs to adjust to $dbc
 
 
 
@@ -78,22 +78,25 @@ if(isset($_POST['submit'])){
 
         if($affected_rows == 1){
 
-            echo 'Name Added!';
+           // echo 'Name Added!';
+            echo' Welcome ' . $f_name .' !';
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc);//same here adjust
+            mysqli_close($dbc1);//same here adjust
 
         } else {
 
             echo 'Error Occurred<br />';
-            echo mysqli_error($dbc);//adjust dbc
+            echo mysqli_error($dbc1);//adjust dbc
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc);//adjust dbc
+            mysqli_close($dbc1);//adjust dbc
 
         }
+
+
 
     } else {
 
@@ -111,27 +114,12 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<form action = "http://localhost:1234/customer.php" method = "post">
-
-    <b> Please enter your information: </b>
-    <p> First Name: <input type = "text" name = "firstName" value = " "/> </p>
-
-    <p> Last Name:  <input type = "text" name = "lastName" value = " "/> </p>
-
-    <p> Phone Number: <input type = "text" name = "phoneNumber" value = " " /> </p>
-
-
-    <p> <input type = "submit" name = "submit" value = "Enter"/> </p>
-
-    <p>                  </p>
-
-</form>
 
 <form action="http://localhost:1234/pickuporder.php" method="post">
 
 
-    <b>Would you like Pick Up or Delivery? </b>
-
+    <b>You are now ready to begin placing an order. </b>
+    <p> Would you like Pick Up or Delivery? </p>
     <p>
         <input type="submit" name="service" value="PICK UP" size = "40" />
     </p>

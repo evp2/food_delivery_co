@@ -14,7 +14,7 @@ require_once('../mysqli_connect.php');
 
 $name = $_SESSION["fname"];
 $query2 = "SELECT c.customerid FROM customers c WHERE c.firstName = '$name' ";
-$response2 = @mysqli_query($dbc, $query2);
+$response2 = @mysqli_query($dbc1, $query2);
 $id = null;
 while($row = mysqli_fetch_array($response2)){
 
@@ -30,10 +30,10 @@ $query3 = "DELETE FROM customers WHERE customerid = $id";
 
 // Get a response from the database by sending the connection
 // and the query
-if (mysqli_query($dbc, $query)) {
+if (mysqli_query($dbc1, $query)) {
     echo "Order deleted successfully";
 } else {
-    echo "Error deleting record: " . mysqli_error($dbc);
+    echo "Error deleting record: " . mysqli_error($dbc1);
 }
 
 //if (mysqli_query($dbc1, $query3)) {
@@ -42,7 +42,7 @@ if (mysqli_query($dbc, $query)) {
   //  echo "Error deleting record: " . mysqli_error($dbc1);
 //}
 
-mysqli_close($dbc);
+mysqli_close($dbc1);
 
 
 
@@ -55,7 +55,7 @@ mysqli_close($dbc);
 
 
 
-<form action="http://localhost:1234/pickservice.php" method="post">
+<form action="http://localhost:1234/homepage.php" method="post">
 
 
     <b>Return to home page</b>
