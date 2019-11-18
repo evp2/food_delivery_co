@@ -10,6 +10,10 @@
 
     Once xampp is installed and the project files are in the C:/xampp/htdocs/ directory, proceed to setup
     the database for the project in phpmyadmin.
+    
+    Create a new database, and use the statements in create_table.sql to generate the tables.
+    
+    
 
 
 
