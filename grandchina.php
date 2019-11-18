@@ -11,11 +11,11 @@
 require_once('../mysqli_connect.php');
 
 // Create a query for the database
-$query = "SELECT m.menuLineItem, m.price FROM menu m WHERE m.restaurantID = 1";
+$query = "SELECT m.menuLineItem, m.price FROM Menu m WHERE m.restaurantID = 1";
 
 // Get a response from the database by sending the connection
 // and the query
-$response = @mysqli_query($dbc, $query);
+$response = @mysqli_query($dbc1, $query);
 
 // If the query executed properly proceed
 if($response){
@@ -48,17 +48,17 @@ cellspacing="5" cellpadding="8">
 
     echo "Couldn't issue database query<br />";
 
-    echo mysqli_error($dbc);
+    echo mysqli_error($dbc1);
 
 }
 
 // Close connection to the database
-mysqli_close($dbc);
+mysqli_close($dbc1);
 
 ?>
 
 
-<form action="http://localhost:1234/orderaddedgrandchina.php" method="post">
+<form action="http://localhost:1234/orderaddedgrand.php" method="post">
 
 
     <p> Add items to your order </p>
