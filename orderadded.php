@@ -4,7 +4,7 @@
 </head>
 <body>
 <?php
-
+//debugging
 if(isset($_POST['submit'])){
 
     $data_missing = array();
