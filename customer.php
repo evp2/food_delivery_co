@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
         lastName, email, phoneNumber) VALUES (NULL, NULL, ?, ?, NULL, ?)";
 
 
-        $stmt = mysqli_prepare($dbc1, $query);//just needs to adjust to $dbc
+        $stmt = mysqli_prepare($dbc, $query);//just needs to adjust to $dbc
 
 
 
@@ -83,16 +83,16 @@ if(isset($_POST['submit'])){
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc1);//same here adjust
+            mysqli_close($dbc);//same here adjust
 
         } else {
 
             echo 'Error Occurred<br />';
-            echo mysqli_error($dbc1);//adjust dbc
+            echo mysqli_error($dbc);//adjust dbc
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc1);//adjust dbc
+            mysqli_close($dbc);//adjust dbc
 
         }
 
