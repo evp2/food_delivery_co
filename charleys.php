@@ -8,7 +8,7 @@
 
 <?php
 // Get a connection for the database
-require_once('../mysqli_connect.php');
+require_once('./mysqli_connect.php');
 
 // Create a query for the database
 $query = "SELECT m.menuLineItem, m.price FROM menu m WHERE m.restaurantID = 5";
