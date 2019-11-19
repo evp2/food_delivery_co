@@ -10,7 +10,7 @@
 <?php
 session_start();
 // Get a connection for the database
-require_once('../mysqli_connect.php');
+require_once('./mysqli_connect.php');
 
 $name = $_SESSION["fname"];
 $query2 = "SELECT c.customerid FROM customers c WHERE c.firstName = '$name' ";
