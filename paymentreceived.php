@@ -79,7 +79,7 @@ if(isset($_POST['submit'])){
 
     if(empty($data_missing)){
 
-        require_once('../mysqli_connect.php');
+        require_once('./mysqli_connect.php');
 
         $name = $_SESSION["fname"];
         $query2 = "SELECT c.customerid FROM customers c WHERE c.firstName = '$name' ";
