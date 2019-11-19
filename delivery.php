@@ -1,6 +1,6 @@
 <?php
 // Get a connection for the database
-require_once('../mysqli_connect.php');
+require_once('./mysqli_connect.php');
 
 // Create a query for the database
 $query = "SELECT r.restaurantName FROM restaurant r WHERE r.service LIKE '%Delivery%'";
