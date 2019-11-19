@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
 
     if(empty($data_missing)){
 
-        require_once('../mysqli_connect.php');
+        require_once('./mysqli_connect.php');
 
         //inserting query : make sure variables match yours
         $query = "INSERT INTO customers (customerid, address, firstName,
