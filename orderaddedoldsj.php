@@ -34,11 +34,11 @@ if(isset($_POST['orderLineItem'])){
 
     if(empty($data_missing)){
 
-        require_once('./mysqli_connect.php');
+        require_once('../mysqli_connect.php');
 
         $name = $_SESSION["fname"];
         $query2 = "SELECT c.customerid FROM customers c WHERE c.firstName = '$name' ";
-        $response2 = @mysqli_query($dbc, $query2);
+        $response2 = @mysqli_query($dbc1, $query2);
         $id = null;
         while($row = mysqli_fetch_array($response2)){
 
@@ -51,10 +51,10 @@ if(isset($_POST['orderLineItem'])){
 
 
         $query = "INSERT INTO orders (orderid, orderLineItem, orderDate,
-        orderTime, customer) VALUES (NULL, ?, CURRENT_DATE , CURRENT_TIME, $id)";
+        orderTime, customer, restaurantid) VALUES (NULL, ?, CURRENT_DATE , CURRENT_TIME, $id, '7')";
 
 
-        $stmt = mysqli_prepare($dbc, $query);
+        $stmt = mysqli_prepare($dbc1, $query);
 
 
 
@@ -70,16 +70,16 @@ if(isset($_POST['orderLineItem'])){
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc);
+            mysqli_close($dbc1);
 
         } else {
 
             echo 'Error Occurred<br />';
-            echo mysqli_error($dbc);
+            echo mysqli_error($dbc1);
 
             mysqli_stmt_close($stmt);
 
-            mysqli_close($dbc);
+            mysqli_close($dbc1);
 
         }
 
